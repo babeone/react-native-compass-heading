@@ -16,11 +16,40 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
 
     private final ReactApplicationContext reactContext;
 
+    //degreeValue
+    private int currentDegree = 0;
+
     // device sensor manager
     private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private Sensor mMagnetometer;
 
-    //degreeValue
-    private float currentDegree = 0;
+    boolean haveAccelerometer = false;
+    boolean haveMagnetometer = false;
+
+    float[] gData = new float[3]; // accelerometer
+    float[] mData = new float[3]; // magnetometer
+    float[] rMat = new float[9];
+    float[] iMat = new float[9];
+    float[] orientation = new float[3];
+
+    @Override
+    public void onSensorChanged( SensorEvent event ) {
+        float[] data;
+        switch ( event.sensor.getType() ) {
+            case Sensor.TYPE_ACCELEROMETER:
+                gData = event.values.clone();
+                break;
+            case Sensor.TYPE_MAGNETIC_FIELD:
+                mData = event.values.clone();
+                break;
+            default: return;
+        }
+
+        if ( SensorManager.getRotationMatrix( rMat, iMat, gData, mData ) ) {
+            this.currentDegree= (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
+        }
+    }
 
     public RNCompassHeadingModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -35,27 +64,27 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){}
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-
-        // get the angle around the z-axis rotated
-        currentDegree = Math.round(event.values[0]);
-
-        //stop register event, after updated it the first time, so i have the value stored one time
-        mSensorManager.unregisterListener(this);
-    }
-
     @ReactMethod
     public void initSensor(Promise promise) {
-        // initialize your android device sensor capabilities
         mSensorManager = (SensorManager) reactContext.getSystemService(Context.SENSOR_SERVICE);
+        this.mAccelerometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_ACCELEROMETER );
+        this.haveAccelerometer = this.mSensorManager.registerListener( this, this.mAccelerometer, SensorManager.SENSOR_DELAY_GAME );
+        this.mMagnetometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_MAGNETIC_FIELD );
+        this.haveMagnetometer = this.mSensorManager.registerListener( this, this.mMagnetometer, SensorManager.SENSOR_DELAY_GAME );
+
         promise.resolve(true);
     }
 
     @ReactMethod
     public void getHeading(Promise promise) {
         //return the currentDegree
-        promise.resolve(currentDegree);
+        try {
+            Thread.sleep(300);
+            promise.resolve(currentDegree);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
     }
 
 }
