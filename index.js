@@ -1,4 +1,14 @@
-import CompassHeading from './src/CompassHeading';
 
-export const { initSensor, getHeading } = CompassHeading;
-//export default CompassHeading;
+import { NativeModules } from 'react-native';
+
+const { RNCompassHeading } = NativeModules;
+
+export default RNCompassHeading;
+
+
+/*import {initSensor,getHeading} from './src/CompassHeading';
+
+export default {
+    initSensor,
+    getHeading
+}*/

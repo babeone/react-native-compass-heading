@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C42BC960-8C5A-11E9-B05D-B56417771FB9}</ProjectGuid>
+    <ProjectGuid>{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Compass.Heading</RootNamespace>

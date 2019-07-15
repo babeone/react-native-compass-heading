@@ -12,11 +12,12 @@ import android.hardware.SensorManager;
 import android.content.Context;
 import com.facebook.react.bridge.Promise;
 
+
 public class RNCompassHeadingModule extends ReactContextBaseJavaModule implements SensorEventListener{
 
-    private final ReactApplicationContext reactContext;
+  private final ReactApplicationContext reactContext;
 
-    //degreeValue
+  //degreeValue
     private int currentDegree = 0;
 
     // device sensor manager
@@ -51,20 +52,21 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
         }
     }
 
-    public RNCompassHeadingModule(ReactApplicationContext reactContext) {
-        super(reactContext);
-        this.reactContext = reactContext;
-    }
 
-    @Override
-    public String getName() {
-        return "RNCompassHeading";
-    }
+  public RNCompassHeadingModule(ReactApplicationContext reactContext) {
+    super(reactContext);
+    this.reactContext = reactContext;
+  }
 
-    @Override
+  @Override
+  public String getName() {
+    return "RNCompassHeading";
+  }
+
+  @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){}
 
-    @ReactMethod
+  @ReactMethod
     public void initSensor(Promise promise) {
         mSensorManager = (SensorManager) reactContext.getSystemService(Context.SENSOR_SERVICE);
         this.mAccelerometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_ACCELEROMETER );

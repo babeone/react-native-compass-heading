@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNCompassHeading", "RNCompassHeading\RNCompassHeading.csproj", "{C42BC960-8C5A-11E9-B05D-B56417771FB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNCompassHeading", "RNCompassHeading\RNCompassHeading.csproj", "{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactNative", "..\node_modules\react-native-windows\ReactWindows\ReactNative\ReactNative.csproj", "{C7673AD5-E3AA-468C-A5FD-FA38154E205C}"
 EndProject
@@ -27,24 +27,24 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Debug|ARM.ActiveCfg = Debug|ARM
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Debug|ARM.Build.0 = Debug|ARM
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Debug|x64.ActiveCfg = Debug|x64
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Debug|x64.Build.0 = Debug|x64
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Debug|x86.ActiveCfg = Debug|x86
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Debug|x86.Build.0 = Debug|x86
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Development|ARM.ActiveCfg = Development|ARM
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Development|ARM.Build.0 = Development|ARM
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Development|x64.ActiveCfg = Development|x64
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Development|x64.Build.0 = Development|x64
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Development|x86.ActiveCfg = Development|x86
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Development|x86.Build.0 = Development|x86
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Release|ARM.ActiveCfg = Release|ARM
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Release|ARM.Build.0 = Release|ARM
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Release|x64.ActiveCfg = Release|x64
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Release|x64.Build.0 = Release|x64
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Release|x86.ActiveCfg = Release|x86
-		{C42BC960-8C5A-11E9-B05D-B56417771FB9}.Release|x86.Build.0 = Release|x86
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Debug|ARM.Build.0 = Debug|ARM
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Debug|x64.ActiveCfg = Debug|x64
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Debug|x64.Build.0 = Debug|x64
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Debug|x86.ActiveCfg = Debug|x86
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Debug|x86.Build.0 = Debug|x86
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Development|ARM.ActiveCfg = Development|ARM
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Development|ARM.Build.0 = Development|ARM
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Development|x64.ActiveCfg = Development|x64
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Development|x64.Build.0 = Development|x64
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Development|x86.ActiveCfg = Development|x86
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Development|x86.Build.0 = Development|x86
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Release|ARM.ActiveCfg = Release|ARM
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Release|ARM.Build.0 = Release|ARM
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Release|x64.ActiveCfg = Release|x64
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Release|x64.Build.0 = Release|x64
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Release|x86.ActiveCfg = Release|x86
+		{36F0D9F0-A6E0-11E9-A760-7105C4430CC5}.Release|x86.Build.0 = Release|x86
 		{C7673AD5-E3AA-468C-A5FD-FA38154E205C}.Debug|ARM.ActiveCfg = Debug|ARM
 		{C7673AD5-E3AA-468C-A5FD-FA38154E205C}.Debug|ARM.Build.0 = Debug|ARM
 		{C7673AD5-E3AA-468C-A5FD-FA38154E205C}.Debug|x64.ActiveCfg = Debug|x64

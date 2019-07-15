@@ -1,5 +1,5 @@
 
-import * as RNCompassHeading from './CompassHeadingNative';
+import RNCompassHeading from './CompassHeadingNative';
 
 async function initSensor() {
     await RNCompassHeading.initSensor();
