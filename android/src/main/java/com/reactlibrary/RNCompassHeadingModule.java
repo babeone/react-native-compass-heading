@@ -19,23 +19,24 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
 
   //degreeValue
     private int currentDegree = 0;
-
     // device sensor manager
     private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
-    private Sensor mMagnetometer;
+    //private Sensor mAccelerometer;
+    //private Sensor mMagnetometer;
 
-    boolean haveAccelerometer = false;
-    boolean haveMagnetometer = false;
-
+    //boolean haveAccelerometer = false;
+    //boolean haveMagnetometer = false;
+/*
     float[] gData = new float[3]; // accelerometer
     float[] mData = new float[3]; // magnetometer
     float[] rMat = new float[9];
     float[] iMat = new float[9];
     float[] orientation = new float[3];
-
+*/
     @Override
     public void onSensorChanged( SensorEvent event ) {
+       this.currentDegree = Math.round(event.values[0]);
+      /*
         float[] data;
         switch ( event.sensor.getType() ) {
             case Sensor.TYPE_ACCELEROMETER:
@@ -50,6 +51,7 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
         if ( SensorManager.getRotationMatrix( rMat, iMat, gData, mData ) ) {
             this.currentDegree= (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
         }
+        */
     }
 
 
@@ -69,10 +71,12 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
   @ReactMethod
     public void initSensor(Promise promise) {
         mSensorManager = (SensorManager) reactContext.getSystemService(Context.SENSOR_SERVICE);
-        this.mAccelerometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_ACCELEROMETER );
-        this.haveAccelerometer = this.mSensorManager.registerListener( this, this.mAccelerometer, SensorManager.SENSOR_DELAY_GAME );
-        this.mMagnetometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_MAGNETIC_FIELD );
-        this.haveMagnetometer = this.mSensorManager.registerListener( this, this.mMagnetometer, SensorManager.SENSOR_DELAY_GAME );
+        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+        SensorManager.SENSOR_DELAY_GAME);
+        //this.mAccelerometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_ACCELEROMETER );
+        //this.haveAccelerometer = this.mSensorManager.registerListener( this, this.mAccelerometer, SensorManager.SENSOR_DELAY_GAME );
+        //this.mMagnetometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_MAGNETIC_FIELD );
+        //this.haveMagnetometer = this.mSensorManager.registerListener( this, this.mMagnetometer, SensorManager.SENSOR_DELAY_GAME );
 
         promise.resolve(true);
     }
@@ -81,7 +85,7 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
     public void getHeading(Promise promise) {
         //return the currentDegree
         try {
-            Thread.sleep(300);
+            Thread.sleep(500);
             promise.resolve(currentDegree);
         } catch (InterruptedException e) {
             e.printStackTrace();
