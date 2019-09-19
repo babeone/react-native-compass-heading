@@ -1,6 +1,8 @@
 
 # react-native-compass-heading
 
+## Work only for Android, no IOS module !!
+
 ## Getting started
 
 `$ npm install react-native-compass-heading --save`
@@ -12,7 +14,7 @@
 ### Manual installation
 
 
-#### iOS
+#### iOS -> NO VERSION FOR IOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-compass-heading` and add `RNCompassHeading.xcodeproj`
@@ -47,7 +49,9 @@
 ```javascript
 import RNCompassHeading from 'react-native-compass-heading';
 
-// TODO: What to do with the module?
-RNCompassHeading;
+await RNCompassHeading.initSensor(); //init the Device Sensor, it's async Method
+let degree = await RNCompassHeading.getHeading(); //get the Degree, it's async and get resolved with a int (degree)
+
+
 ```
   
