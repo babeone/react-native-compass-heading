@@ -17,41 +17,14 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
 
   private final ReactApplicationContext reactContext;
 
-  //degreeValue
+    //degreeValue
     private int currentDegree = 0;
     // device sensor manager
     private SensorManager mSensorManager;
-    //private Sensor mAccelerometer;
-    //private Sensor mMagnetometer;
 
-    //boolean haveAccelerometer = false;
-    //boolean haveMagnetometer = false;
-/*
-    float[] gData = new float[3]; // accelerometer
-    float[] mData = new float[3]; // magnetometer
-    float[] rMat = new float[9];
-    float[] iMat = new float[9];
-    float[] orientation = new float[3];
-*/
     @Override
     public void onSensorChanged( SensorEvent event ) {
        this.currentDegree = Math.round(event.values[0]);
-      /*
-        float[] data;
-        switch ( event.sensor.getType() ) {
-            case Sensor.TYPE_ACCELEROMETER:
-                gData = event.values.clone();
-                break;
-            case Sensor.TYPE_MAGNETIC_FIELD:
-                mData = event.values.clone();
-                break;
-            default: return;
-        }
-
-        if ( SensorManager.getRotationMatrix( rMat, iMat, gData, mData ) ) {
-            this.currentDegree= (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
-        }
-        */
     }
 
 
@@ -68,19 +41,20 @@ public class RNCompassHeadingModule extends ReactContextBaseJavaModule implement
   @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy){}
 
+  /**
+    Method for init the DeviceSensor. Return a promise, get resolved when the sensor is active
+   */
   @ReactMethod
     public void initSensor(Promise promise) {
         mSensorManager = (SensorManager) reactContext.getSystemService(Context.SENSOR_SERVICE);
         mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
         SensorManager.SENSOR_DELAY_GAME);
-        //this.mAccelerometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_ACCELEROMETER );
-        //this.haveAccelerometer = this.mSensorManager.registerListener( this, this.mAccelerometer, SensorManager.SENSOR_DELAY_GAME );
-        //this.mMagnetometer = this.mSensorManager.getDefaultSensor( Sensor.TYPE_MAGNETIC_FIELD );
-        //this.haveMagnetometer = this.mSensorManager.registerListener( this, this.mMagnetometer, SensorManager.SENSOR_DELAY_GAME );
-
         promise.resolve(true);
     }
 
+    /**
+      Method for get the Distance in Degree from the true North. Return a promise, get resolved with a number (degree)
+     */
     @ReactMethod
     public void getHeading(Promise promise) {
         //return the currentDegree
