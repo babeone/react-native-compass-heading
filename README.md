@@ -49,8 +49,13 @@
 ```javascript
 import RNCompassHeading from 'react-native-compass-heading';
 
-await RNCompassHeading.initSensor(); //init the Device Sensor, it's async Method
-let degree = await RNCompassHeading.getHeading(); //get the Degree, it's async and get resolved with a int (degree)
+//Example code
+
+getHeadingCompass = async () => {
+  await RNCompassHeading.initSensor(); //init the Device Sensor, it's async Method
+  let degree = await RNCompassHeading.getHeading(); //get the Degree, it's async and get resolved with a int (degree), it is executed only one time
+  //do something with the degree value
+}
 
 
 ```
