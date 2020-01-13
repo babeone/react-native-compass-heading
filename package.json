@@ -10,6 +10,7 @@
     "react-native"
   ],
   "author": "Andrea Barletti",
+  "homepage": "https://github.com/babeone/react-native-compass-heading#readme"
   "license": "",
   "peerDependencies": {
     "react-native": "^0.41.2",
